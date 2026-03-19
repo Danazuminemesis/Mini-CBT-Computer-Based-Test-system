@@ -1,30 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test</title>
+<title>Test</title>
+
+<style>
+body{
+    background:#121212;
+    color:#eee;
+    font-family:Arial;
+}
+
+.container{
+    width:60%;
+    margin:auto;
+    padding:20px;
+}
+
+.question{
+    background:#1e1e1e;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:8px;
+}
+
+button{
+    padding:12px 20px;
+    background:#4da3ff;
+    border:none;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+</style>
+
 </head>
+
 <body>
 
-<h1>Answer the Questions</h1>
+<div class="container">
+
+<h1>Answer All Questions</h1>
 
 <form method="POST">
 
 {% for question in questions %}
+<div class="question">
+
 <p><strong>{{ loop.index }}. {{ question.text }}</strong></p>
 
-{% set q_index =loop.index0 %}
+{% set q_index = loop.index0 %}
 
 {% for option in question.options %}
 <label>
-<input type="radio" name="q{{ q_index }}" value="{{ option }}" required> 
+<input type="radio" name="q{{ q_index }}" value="{{ option }}" required>
 {{ option }}
 </label><br>
 {% endfor %}
 
-<br>
+</div>
 {% endfor %}
 
-<button type="submit">Submit</button>
+<button type="submit">Submit Test</button>
+
 </form>
+
+</div>
+
 </body>
 </html>
