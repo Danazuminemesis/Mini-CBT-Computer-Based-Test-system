@@ -6,6 +6,10 @@ def home():
 if __name__ == "__main__":
     app.run(debug=True)
 
+@app.route("/test")
+def test():
+    return render_template("test.html", questions=questions)
+
 from models import Question
 questions = [
     Question("What is Python?", "Programming Language"),
