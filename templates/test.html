@@ -7,20 +7,18 @@
 
 <h1>Answer the Questions</h1>
 
-{% for question in questions %}
-<p>{{ loop.index }}. {{ question.text }}</p>
-<input type="text">
-<br><br>
-{% endfor %}
-
-
 <form method="POST">
 
 {% for question in questions %}
-<p>{{ loop.index }}. {{ question.text }}</p>
+<p><strong>{{ loop.index }}. {{ question.text }}</strong></p>
+
+{% set q_index =loop.index0 %}
 
 {% for option in question.options %}
-<input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required> {{ option }}<br>
+<label>
+<input type="radio" name="q{{ q_index }}" value="{{ option }}" required> 
+{{ option }}
+</label><br>
 {% endfor %}
 
 <br>
