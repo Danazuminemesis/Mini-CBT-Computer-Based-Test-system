@@ -2,12 +2,17 @@ from flask import Flask, render_template
 app = Flask(__name__)
 from flask import request
 from datetime import datetime
+from models import Question
+
+questions = [
+    Question("What is Python?", ["Snake", "Programming Language", "Car", "Food"], "Programming Language"),
+    Question("2 + 2 = ?", ["3", "4", "5", "6"], "4"),
+    Question("Which is a data structure?", ["Loop", "Queue", "Print", "Input"], "Queue")
+]
 
 @app.route("/")
 def home():
     return render_template("index.html")
-if __name__ == "__main__":
-    app.run(debug=True)
 
 @app.route("/test", methods=["GET", "POST"])
 def test():
@@ -25,9 +30,5 @@ def test():
 
     return render_template("test.html", questions=questions)
 
-from models import Question
-questions = [
-    Question("What is Python?", "Programming Language"),
-    Question("What is 2 + 2?", "4"),
-    Question("Which is a data structure?", "Queue")
-]
+if __name__ == "__main__":
+    app.run(debug=True)

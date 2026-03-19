@@ -18,8 +18,12 @@
 
 {% for question in questions %}
 <p>{{ loop.index }}. {{ question.text }}</p>
-<input type="text" name="q{{ loop.index0 }}" required>
-<br><br>
+
+{% for option in question.options %}
+<input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required> {{ option }}<br>
+{% endfor %}
+
+<br>
 {% endfor %}
 
 <button type="submit">Submit</button>
