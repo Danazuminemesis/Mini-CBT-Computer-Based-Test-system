@@ -3,11 +3,16 @@ app = Flask(__name__)
 from flask import request
 from datetime import datetime
 from models import Question
+import random
+random.shuffle(questions)
 
 questions = [
     Question("What is Python?", ["Snake", "Programming Language", "Car", "Food"], "Programming Language"),
     Question("2 + 2 = ?", ["3", "4", "5", "6"], "4"),
-    Question("Which is a data structure?", ["Loop", "Queue", "Print", "Input"], "Queue")
+    Question("Which is a data structure?", ["Loop", "Queue", "Print", "Input"], "Queue"),
+    Question("which of the following is not a programming language", ["Python", "Java", "HTML", "C++"], "HTML"),
+    Question("which of these is an example of an output function in python?", ["input()", "print()", "len()", "type()"], "print()"),
+    Question("which of these is an example of an output device?", ["Monitor", "Keyboard", "Mouse", "Scanner"], "Monitor"),
 ]
 
 @app.route("/")
