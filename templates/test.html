@@ -43,6 +43,9 @@ button{
 
 <form method="POST">
 
+<h2>Candidate: {{ username }}</h2>
+<input type="hidden" name="username" value="{{ username }}">
+
 {% for question in questions %}
 <div class="question">
 

@@ -21,6 +21,8 @@ def home():
 
 @app.route("/test", methods=["GET", "POST"])
 def test():
+    username = request.args.get("username")
+    
     if request.method == "POST":
         score = 0
 
@@ -31,9 +33,14 @@ def test():
 
         time_submitted = datetime.now().strftime("%H:%M")
 
-        return render_template("result.html", score=score, total=len(questions), time=time_submitted)
-
-    return render_template("test.html", questions=questions)
+        return render_template(
+            "result.html",
+             score=score,
+             total=len(questions),
+             time=time_submitted,
+             username=request.form.get ("username")
+        )
+    return render_template("test.html", questions=questions, username=username)
 
 if __name__ == "__main__":
     app.run(debug=True)
