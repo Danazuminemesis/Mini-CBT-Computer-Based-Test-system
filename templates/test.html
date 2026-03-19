@@ -40,7 +40,7 @@ button{
 <div class="container">
 
 <h1>Answer All Questions</h1>
-
+<h2 id="timer">Time Left: 60s</h2>
 <form method="POST">
 
 <h2>Candidate: {{ username }}</h2>
@@ -68,6 +68,21 @@ button{
 </form>
 
 </div>
+
+<script>
+let timeLeft = 60;
+
+function updateTimer(){
+    document.getElementById("timer").innerText = "Time Left: " + timeLeft + "s";
+    timeLeft--;
+
+    if(timeLeft < 0){
+        document.forms[0].submit();
+    }
+}
+
+setInterval(updateTimer, 1000);
+</script>
 
 </body>
 </html>
