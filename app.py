@@ -4,8 +4,6 @@ from flask import request
 from datetime import datetime
 from models import Question
 
-
-
 questions = [
     Question("What is Python?", ["Snake", "Programming Language", "Car", "Food"], "Programming Language"),
     Question("2 + 2 = ?", ["3", "4", "5", "6"], "4"),
