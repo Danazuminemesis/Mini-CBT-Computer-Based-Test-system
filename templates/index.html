@@ -32,6 +32,26 @@ button{
 button:hover{
     background:#2e86de;
 }
+
+.input-field{
+    width:70%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #444;
+    background:#2c2c2c;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+
+.input-field::placeholder{
+    color:#aaa;
+}
+
+.input-field:focus{
+    border:1px solid #4da3ff;
+    box-shadow:0 0 5px #4da3ff;
+}
 </style>
 
 </head>
@@ -44,7 +64,7 @@ button:hover{
 <p>Test your knowledge</p>
 <form action="/test" method="GET">
 
-<input type="text" name="username" placeholder="Enter your name" required>
+<input type="text" name="username" placeholder="Enter your name" required class="input-field">
 <br><br>
 
 <button type="submit">Start Test</button>
