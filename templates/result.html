@@ -1,6 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+</head>
+<body>
 <h1>Test result</h1>
 
 <p>Score: {{ score }} / {{ total }}</p>
 <p>Time Submitted: {{ time }}</p>
 
 <a href="/"><button>Go Home</button></a>
+
+{% if score == total %}
+<p>Excellent! 🎉</p>
+{% elif score >= total/2 %}
+<p>Good job 👍</p>
+{% else %}
+<p>Try again ❌</p>
+{% endif %}
+
+</body>
+</html>
